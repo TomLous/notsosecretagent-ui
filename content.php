@@ -9,6 +9,8 @@
 <br>
 <br>
 <br>
+<span id="translated">
 <?=$_GET['content'];?>
+</span>
 </body>
 

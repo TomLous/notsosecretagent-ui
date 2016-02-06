@@ -17,4 +17,11 @@ $document['classification'] = $_GET;
 unset($document['_id']);
 $elasticCollection->update(array('_id'=> $id), array('$set'=>$document));
 
+
+$classifiedCollection = $mongoClient->selectCollection('AIVD', 'classified');
+$classifiedCollection->insert($document);
+
+
+
+
 header("Location: cat.php");
