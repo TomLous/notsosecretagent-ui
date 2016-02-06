@@ -15,7 +15,7 @@ else{
 
 }
 $cursor->sort(array("_id" => -1));
-$cursor->limit(1)->skip(0);
+$cursor->limit(1)->skip(rand(0, 1000));
 
 $obj = $cursor->getNext();
 $interaction = $obj['interaction'];
