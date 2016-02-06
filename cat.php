@@ -7,7 +7,12 @@
  */
 require('config.php');
 
-$cursor = $elasticCollection->find(array('classification' => array('$exists' => false)));
+if(isset($_GET['id'])) {
+    $cursor = $elasticCollection->find(array('id'=>new MongoId($_GET['id'])));
+}
+else{
+    $cursor = $elasticCollection->find(array('_type'=>'twitter', 'classification' => array('$exists' => false)));
+}
 $cursor->sort(array("_id" => -1));
 $cursor->limit(1)->skip(0);
 
