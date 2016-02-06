@@ -12,6 +12,7 @@ if(isset($_GET['id'])) {
 }
 else{
     $cursor = $elasticCollection->find(array('_type'=>'twitter', 'classification' => array('$exists' => false)));
+
 }
 $cursor->sort(array("_id" => -1));
 $cursor->limit(1)->skip(0);
