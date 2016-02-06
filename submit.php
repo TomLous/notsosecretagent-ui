@@ -10,7 +10,7 @@ $id = new MongoId($_GET['mongoId']);
 unset($_GET['mongoId']);
 
 $cursor = $elasticCollection->find(array('_id' => $id));
-$cursor->limit(1)->skip(0);
+$cursor->limit(1)->skip(rand(0,100));
 
 $document = $cursor->getNext();
 $document['classification'] = $_GET;

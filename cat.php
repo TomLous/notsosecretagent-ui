@@ -78,7 +78,7 @@ $author = $interaction['author'];
                 <input required="required" type="radio" name="sentiment" id="sentiment_boos" value="angry" id="mongoId"><label for="sentiment_boos">Boos</label>
                 <input required="required" type="radio" name="sentiment" id="sentiment_blij" value="happy" id="mongoId"><label for="sentiment_blij">Blij</label>
                 <input  required="required" type="radio" name="sentiment" id="sentiment_verdrietig" value="unhappy" id="mongoId"><label for="sentiment_verdrietig">Verdrietig</label>
-                <input required="required" type="radio" name="sentiment" id="sentiment_sarcastisch" value="sarcasm" id="mongoId"><label for="sentiment_sarcastisch">Sacrastisch</label>
+                <input required="required" type="radio" name="sentiment" id="sentiment_sarcastisch" value="sarcasm" id="mongoId"><label for="sentiment_sarcastisch">Sarcastisch</label>
 
                 <br>
                 <input type="submit" value="Opslaan en volgende">
