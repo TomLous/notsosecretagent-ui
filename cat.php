@@ -8,7 +8,7 @@
 require('config.php');
 
 if(isset($_GET['id'])) {
-    $cursor = $elasticCollection->find(array('id'=>new MongoId($_GET['id'])));
+    $cursor = $elasticCollection->find(array('_id'=>new MongoId($_GET['id'])));
 }
 else{
     $cursor = $elasticCollection->find(array('_type'=>'twitter', 'classification' => array('$exists' => false)));
