@@ -14,4 +14,4 @@ $text = $_REQUEST['content'];
 $cmd = "/usr/bin/Rscript {$path}sentimentPredictionNaive.R \"$text\" \"$path\" 2>&1";
 //echo $cmd;
 $e = exec($cmd);
-return $e;
+print $e;
