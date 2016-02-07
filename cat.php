@@ -90,7 +90,6 @@ $author = $interaction['author'];
                 <br>
                 <input type="submit" value="Opslaan en volgende">
             </form>
-
             <header>
                 <h3><a target="_blank" href="<?=$interaction['link'];?>"> <?=isset($interaction['title'])?$interaction['title']:'link';?></a></h3>
 
