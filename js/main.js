@@ -45,9 +45,9 @@ function getPOI(content){
     $.get('http://178.62.232.68/notsosecretagent-ui/predict_poi.php', {"content": content}, function(data){
         console.log(data);
         if(data == 0){
-            data = "unsure"
-        }else if(data == -1){
             data = "no"
+        }else if(data == 0.5){
+            data = "unsure"
         }else if(data == 1){
             data = "yes"
         }

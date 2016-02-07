@@ -25,6 +25,7 @@ hr {
     padding: 0;
 }
 
+
 audio,
 canvas,
 iframe,
@@ -398,4 +399,16 @@ label{
     background-color: aliceblue;
     color: darkblue;
     border: 1px solid blue;
+}
+
+body{
+    background-color: #FFFFF6;
+}
+
+a{
+    color: brown
+}
+
+img[src='Error.src']{
+    display: none;
 }

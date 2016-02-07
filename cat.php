@@ -50,7 +50,7 @@ $author = $interaction['author'];
 
 <div class="header-container">
     <header class="wrapper clearfix">
-        <h1 class="title">Classifier</h1>
+        <h1 class="title"><img src="https://d30y9cdsu7xlg0.cloudfront.net/png/36874-200.png" width="50">The "Not so secret agent" Classifier</h1>
         <nav>
             <ul>
 <!--                <li><a href="#">nav ul li a</a></li>-->
@@ -100,22 +100,18 @@ $author = $interaction['author'];
 <!--                <p><div id='MicrosoftTranslatorWidget' class='Dark' style='color:white;background-color:#555555'></div><script type='text/javascript'>setTimeout(function(){{var s=document.createElement('script');s.type='text/javascript';s.charset='UTF-8';s.src=((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=ueOIGRSKkd965FeEGM5JtQ**&ctf=True&ui=true&settings=Manual&from=';var p=document.getElementsByTagName('head')[0]||document.documentElement;p.insertBefore(s,p.firstChild); }},0);</script></p>-->
                 </p>
             </header>
-            <section>
-                <h2>User</h2>
-                <p><a target="_blank" href="<?=$author['link'];?>"><img src="<?=$author['avatar'];?>"><?=$author['name'];?> (<?=$author['username'];?>)</a> </p>
-                <p>User language: <?=$author['language'];?> </p>
-            </section>
-            <section>
-                <h2>Details</h2>
-                <p><b><?=$obj['_type'];?></b> : <?=$interaction['source'];?></p>
-                <p><b>Date:</b> <?=$interaction['created_at'];?></p>
-                <p><b>Language:</b> <?=$language['tag'];?></p>
-            </section>
+
 
 
         </article>
 
         <aside>
+            <section>
+                <h2>User</h2>
+                <p><a target="_blank" href="<?=$author['link'];?>"><img src="<?=$author['avatar'];?>"><?=$author['name'];?> (<?=$author['username'];?>)</a> </p>
+                <p>User language: <?=$author['language'];?> </p>
+            </section>
+
             <?php if(isset($interaction['geo'])){
 //                print_r($interaction['geo']);
                 $coord = $interaction['geo']['latitude'].','.$interaction['geo']['longitude']; ?>
@@ -123,10 +119,16 @@ $author = $interaction['author'];
                 <a target="_blank" href="https://www.google.nl/maps/@<?=$coord;?>,15z?hl=nl"><img src="https://maps.googleapis.com/maps/api/staticmap?center=<?=$coord;?>&zoom=9&size=320x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C<?=$coord;?>"></a>
             </p>
             <?php } ?>
-            <h3>info</h3>
+            <section>
+                <h2>Details</h2>
+                <p><b><?=$obj['_type'];?></b> : <?=$interaction['source'];?></p>
+                <p><b>Date:</b> <?=$interaction['created_at'];?></p>
+                <p><b>Language:</b> <?=$language['tag'];?></p>
+            </section>
+            <h4>info</h4>
             <p>
                 <ul>
-                <li><b>MongoId:</b><?=$obj['_id'];?></li>
+                <li><b>MongoId:</b><a href="cat.php?id=<?=$obj['_id'];?>"><?=$obj['_id'];?></a></li>
                 <li><b>Elastic:</b><?=$obj['_index'];?>/<?=$obj['_type'];?>/<?=$obj['elastic_id'];?> </li>
                 <li><b>File:</b><?=basename($obj['filename']);?></li>
 
