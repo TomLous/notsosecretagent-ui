@@ -375,4 +375,27 @@ nav a:hover {
 label{
     padding-left: 5px;
     padding-right: 10px;
+
+
+}
+
+.suggest {
+    position: absolute;
+    left: 700px;
+    border: 1px solid back;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+.loading{
+    background-color: bisque;
+    color: darkred;
+    border: 1px solid red;
+}
+
+.done{
+    background-color: aliceblue;
+    color: darkblue;
+    border: 1px solid blue;
 }

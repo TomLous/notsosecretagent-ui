@@ -68,18 +68,19 @@ $author = $interaction['author'];
             <form method="get" action="submit.php" onsubmit="setContent()">
                 <input type="hidden" value="<?=$obj['_id'];?>" name="mongoId">
                 <input type="hidden" value="" name="content_translated" id="content_translated">
-                <br> <b>Terrorisme:</b>
+
+                <div><b>Terrorisme:</b></div><div class="suggest loading" id="suggest_allignment">Loading...</div>
                 <input required="required" type="radio" name="allignment" id="allignment_anti" value="-1" id="mongoId"><label for="allignment_anti">Anti</label>
                 <input required="required" type="radio" name="allignment" id="allignment_neutraal" value="0" id="mongoId"><label for="allignment_neutraal">Neutraal</label>
                 <input required="required" type="radio" name="allignment" id="allignment_pro" value="1" id="mongoId"><label for="allignment_pro">Pro</label>
 
-                <br> <b>Person of interest:</b>
+                <br> <div><b>Person of interest:</b></div><div class="suggest loading" id="suggest_poi">Loading...</div>
                 <input required="required" type="radio" name="poi" id="poi_no" value="0" id="mongoId"><label for="poi_no">Nee</label>
                 <input required="required" type="radio" name="poi" id="poi_maybe" value="0.5" id="mongoId"><label for="poi_maybe">?</label>
                 <input required="required" type="radio" name="poi" id="poi_yes" value="1" id="mongoId"><label for="poi_yes">Ja</label>
 
 
-                <br> <b>Sentiment:</b>
+                <br> <div><b>Sentiment:</b></div><div class="suggest loading" id="suggest_sentiment">Loading...</div>
                 <input required="required" type="radio" name="sentiment" id="sentiment_neutraal" value="neutral" id="mongoId"><label for="sentiment_neutraal">Neutraal</label>
                 <input required="required" type="radio" name="sentiment" id="sentiment_boos" value="angry" id="mongoId"><label for="sentiment_boos">Boos</label>
                 <input required="required" type="radio" name="sentiment" id="sentiment_blij" value="happy" id="mongoId"><label for="sentiment_blij">Blij</label>
@@ -91,7 +92,7 @@ $author = $interaction['author'];
             </form>
 
             <header>
-                <h1><a target="_blank" href="<?=$interaction['link'];?>"> <?=isset($interaction['title'])?$interaction['title']:'link';?></a></h1>
+                <h3><a target="_blank" href="<?=$interaction['link'];?>"> <?=isset($interaction['title'])?$interaction['title']:'link';?></a></h3>
 
                 <p style="border: 1px solid grey; padding: 10px">
                     <iframe id="content" frameborder="0" src="content.php?language=<?=$language['tag'];?>&content=<?=urlencode($interaction['title'].'<br>'.$interaction['content']);?>" width="100%" height="400"></iframe>
@@ -152,6 +153,12 @@ $author = $interaction['author'];
 
 <script src="js/main.js"></script>
 
+
+<script>
+    getSentiment(<?=json_encode($interaction['content']);?>);
+
+
+</script>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
