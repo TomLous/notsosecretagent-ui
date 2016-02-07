@@ -11,7 +11,7 @@ function getSentiment(content){
         }
         $('#suggest_sentiment').html( data);
 
-        if(data != 'unknown' && !data.match(/error/ig)) {
+        if(data != 'unknown' && !data.match(/error/ig) && !data.match(/execution/ig)) {
             $('#suggest_sentiment').removeClass('loading').addClass('done');
         }
     })
