@@ -62,3 +62,5 @@ function getPOI(content){
         }
     })
 }
+
+$("img").error(function(){$(this).hide();});

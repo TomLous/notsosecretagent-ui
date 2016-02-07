@@ -382,23 +382,25 @@ label{
 
 .suggest {
     position: absolute;
-    left: 700px;
+    left: 668px;
     border: 1px solid back;
     padding-left: 20px;
     padding-right: 20px;
-
+    width: 80px;
+    text-align: center;
+    box-shadow: 0 5px 10px #aaa;
 }
 
 .loading{
     background-color: bisque;
     color: darkred;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 .done{
     background-color: aliceblue;
     color: darkblue;
-    border: 1px solid blue;
+    /*border: 1px solid blue;*/
 }
 
 body{
@@ -411,4 +413,30 @@ a{
 
 img[src='Error.src']{
     display: none;
+}
+
+.action_button{
+    text-align: center;
+    box-shadow: 0 5px 10px #aaa;
+    border: none;
+    padding: 10px;
+    margin-left: 20px;
+    width: 219px;
+    margin-top: 13px;
+    margin-bottom: 10px;
+    background-color: #FF9900;
+    color: #FFFFF6;
+    font-weight: bold;
+}
+
+h3 {
+    margin: 20px 0px 0px 0px;
+    color: blanchedalmond;
+    text-decoration: underline;
+}
+
+section p {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-size: 14px;
 }

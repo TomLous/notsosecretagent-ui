@@ -69,32 +69,32 @@ $author = $interaction['author'];
                 <input type="hidden" value="<?=$obj['_id'];?>" name="mongoId">
                 <input type="hidden" value="" name="content_translated" id="content_translated">
 
-                <div><b>Terrorisme:</b></div><div class="suggest loading" id="suggest_allignment">Loading...</div>
+                <div><b>Terrorism:</b></div><div class="suggest loading" id="suggest_allignment">Loading...</div>
                 <input required="required" type="radio" name="allignment" id="allignment_anti" value="-1" id="mongoId"><label for="allignment_anti">Anti</label>
-                <input required="required" type="radio" name="allignment" id="allignment_neutraal" value="0" id="mongoId"><label for="allignment_neutraal">Neutraal</label>
+                <input required="required" type="radio" name="allignment" id="allignment_neutraal" value="0" id="mongoId"><label for="allignment_neutraal">Neutral</label>
                 <input required="required" type="radio" name="allignment" id="allignment_pro" value="1" id="mongoId"><label for="allignment_pro">Pro</label>
 
                 <br> <div><b>Person of interest:</b></div><div class="suggest loading" id="suggest_poi">Loading...</div>
-                <input required="required" type="radio" name="poi" id="poi_no" value="0" id="mongoId"><label for="poi_no">Nee</label>
-                <input required="required" type="radio" name="poi" id="poi_maybe" value="0.5" id="mongoId"><label for="poi_maybe">?</label>
-                <input required="required" type="radio" name="poi" id="poi_yes" value="1" id="mongoId"><label for="poi_yes">Ja</label>
+                <input required="required" type="radio" name="poi" id="poi_no" value="0" id="mongoId"><label for="poi_no">No</label>
+                <input required="required" type="radio" name="poi" id="poi_maybe" value="0.5" id="mongoId"><label for="poi_maybe">Unsure</label>
+                <input required="required" type="radio" name="poi" id="poi_yes" value="1" id="mongoId"><label for="poi_yes">Yes</label>
 
 
                 <br> <div><b>Sentiment:</b></div><div class="suggest loading" id="suggest_sentiment">Loading...</div>
-                <input required="required" type="radio" name="sentiment" id="sentiment_neutraal" value="neutral" id="mongoId"><label for="sentiment_neutraal">Neutraal</label>
-                <input required="required" type="radio" name="sentiment" id="sentiment_boos" value="angry" id="mongoId"><label for="sentiment_boos">Boos</label>
-                <input required="required" type="radio" name="sentiment" id="sentiment_blij" value="happy" id="mongoId"><label for="sentiment_blij">Blij</label>
-                <input  required="required" type="radio" name="sentiment" id="sentiment_verdrietig" value="unhappy" id="mongoId"><label for="sentiment_verdrietig">Verdrietig</label>
-                <input required="required" type="radio" name="sentiment" id="sentiment_sarcastisch" value="sarcasm" id="mongoId"><label for="sentiment_sarcastisch">Sarcastisch</label>
+                <input required="required" type="radio" name="sentiment" id="sentiment_neutraal" value="neutral" id="mongoId"><label for="sentiment_neutraal">Neutral</label>
+                <input required="required" type="radio" name="sentiment" id="sentiment_boos" value="angry" id="mongoId"><label for="sentiment_boos">Angry</label>
+                <input required="required" type="radio" name="sentiment" id="sentiment_blij" value="happy" id="mongoId"><label for="sentiment_blij">Happy</label>
+                <input  required="required" type="radio" name="sentiment" id="sentiment_verdrietig" value="unhappy" id="mongoId"><label for="sentiment_verdrietig">Unhappy</label>
+                <input required="required" type="radio" name="sentiment" id="sentiment_sarcastisch" value="sarcasm" id="mongoId"><label for="sentiment_sarcastisch">Sarcasm</label>
 
                 <br>
-                <input type="submit" value="Opslaan en volgende">
+                <input type="submit" class="action_button" value="Save and next &raquo;">
             </form>
             <header>
-                <h3><a target="_blank" href="<?=$interaction['link'];?>"> <?=isset($interaction['title'])?$interaction['title']:'link';?></a></h3>
+
 
                 <p style="border: 1px solid grey; padding: 10px">
-                    <iframe id="content" frameborder="0" src="content.php?language=<?=$language['tag'];?>&content=<?=urlencode($interaction['title'].'<br>'.$interaction['content']);?>" width="100%" height="400"></iframe>
+                    <iframe id="content" frameborder="0" src="content.php?language=<?=$language['tag'];?>&content=<?=urlencode($interaction['title'].'<br>'.$interaction['content']);?>" width="100%" height="250"></iframe>
 <!--                    --><?//=$interaction['content'];?><!--</p>-->
 <!--                <p><div id='MicrosoftTranslatorWidget' class='Dark' style='color:white;background-color:#555555'></div><script type='text/javascript'>setTimeout(function(){{var s=document.createElement('script');s.type='text/javascript';s.charset='UTF-8';s.src=((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=ueOIGRSKkd965FeEGM5JtQ**&ctf=True&ui=true&settings=Manual&from=';var p=document.getElementsByTagName('head')[0]||document.documentElement;p.insertBefore(s,p.firstChild); }},0);</script></p>-->
                 </p>
@@ -105,35 +105,36 @@ $author = $interaction['author'];
         </article>
 
         <aside>
-            <section>
-                <h2>User</h2>
-                <p><a target="_blank" href="<?=$author['link'];?>"><img src="<?=$author['avatar'];?>"><?=$author['name'];?> (<?=$author['username'];?>)</a> </p>
-                <p>User language: <?=$author['language'];?> </p>
-            </section>
 
+            <section>
+                <h3>User</h3>
+                <p><a target="_blank" href="<?=$author['link'];?>">
+                        <img src="<?=$author['avatar'];?>" onerror="this.style.display='none'"> <?=$author['name'];?> (<?=$author['username'];?>)</a> </p>
+            </section>
             <?php if(isset($interaction['geo'])){
 //                print_r($interaction['geo']);
                 $coord = $interaction['geo']['latitude'].','.$interaction['geo']['longitude']; ?>
             <p >
                 <a target="_blank" href="https://www.google.nl/maps/@<?=$coord;?>,15z?hl=nl"><img src="https://maps.googleapis.com/maps/api/staticmap?center=<?=$coord;?>&zoom=9&size=320x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C<?=$coord;?>"></a>
             </p>
+
             <?php } ?>
             <section>
-                <h2>Details</h2>
-                <p><b><?=$obj['_type'];?></b> : <?=$interaction['source'];?></p>
+                <h3>Details</h3>
+                <p><b>Source:</b> <a target="_blank" href="<?=$interaction['link'];?>"><?=isset($interaction['title'])?$interaction['title']:'link';?></a></p>
+                <p><b>User language:</b> <?=$author['language'];?> </p>
+                <p><b><?=$obj['_type'];?>:</b><?=$interaction['source'];?></p>
                 <p><b>Date:</b> <?=$interaction['created_at'];?></p>
                 <p><b>Language:</b> <?=$language['tag'];?></p>
             </section>
-            <h4>info</h4>
-            <p>
-                <ul>
-                <li><b>MongoId:</b><a href="cat.php?id=<?=$obj['_id'];?>"><?=$obj['_id'];?></a></li>
-                <li><b>Elastic:</b><?=$obj['_index'];?>/<?=$obj['_type'];?>/<?=$obj['elastic_id'];?> </li>
-                <li><b>File:</b><?=basename($obj['filename']);?></li>
+            <section>
+                <h3>Info</h3>
+                <p><b>MongoId:</b><a href="cat.php?id=<?=$obj['_id'];?>"><?=$obj['_id'];?></a></p>
+                <p><b>Elastic:</b> <?=$obj['_index'];?>/<?=$obj['_type'];?>/<?=$obj['elastic_id'];?></p>
+                <p><b>File:</b><?=basename($obj['filename']);?></p>
 
-            </ul>
+            </section>
 
-            </p>
         </aside>
 
     </div> <!-- #main -->
