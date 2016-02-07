@@ -156,6 +156,8 @@ $author = $interaction['author'];
 
 <script>
     getSentiment(<?=json_encode($interaction['content']);?>);
+    getAllignment(<?=json_encode($interaction['content']);?>);
+    getPOI(<?=json_encode($interaction['content']);?>);
 
 
 </script>
