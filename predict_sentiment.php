@@ -8,7 +8,7 @@
 
 $text = "ISIS, IS, the Islamic State, ISIL -- the international community can't seem to decide what to call the Islamic extremists who been terrorizing the Middle East, and now the French government has announced it will use yet another name for them, wh..";
 
-$cmd = "/usr/bin/Rscript /var/www/notsosecretagent-r/sentimentPredictionNaive.R \"$text\"";
+$cmd = "/usr/bin/Rscript /var/www/notsosecretagent-r/sentimentPredictionNaive.R \"$text\" 2>&1";
 echo $cmd;
 $e = exec($cmd);
 var_dump($e);
